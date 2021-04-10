@@ -13,7 +13,7 @@ python main.py -h
 ```
 ### More
 - iOS: [Shortcuts](https://www.icloud.com/shortcuts/9bb605ec40464fbd98237d70e0ccfb48)
-- Android: [MacroDroid]()
+- Android: [MacroDroid](https://busiyi.lanzous.com/i4MYKnvimih)
 
 ### License
 MIT © ourongxing
