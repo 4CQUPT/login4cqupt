@@ -15,20 +15,6 @@ def get_ip():
     s.close()
     return ip
 
-def check_ssid():
-    if sys.platform == 'linux':
-        try: 
-            str = 'nmcli -t -f NAME connection show --active'
-            ssid = subprocess.check_output(str.split()).decode('utf-8')
-        except:
-            print("您需要安装 NetworkManger，请自行 Google 安装！")
-        else:
-            if 'CQUPT' in ssid:
-                return True
-            else:
-                return False
-    #  elif sys.platform == 'win32':
-
 def login(ip, args):
     args.ip = ip
     args.device = 0 if args.device == 'pc' else 1
@@ -59,5 +45,4 @@ def get_args():
     return parser.parse_args()
 
 if __name__ == '__main__':
-    if check_ssid():
-        login(get_ip(), get_args())
+    login(get_ip(), get_args())
