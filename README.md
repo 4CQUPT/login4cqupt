@@ -7,6 +7,7 @@ Support Windows & Linux & Mac.
 git clone https://github.com/ourongxing/login4cqupt.git
 cd login4cqupt
 # then
+pip install -r requirements.txt
 python main.py 1658xxx passxxxx -o cmcc -d pc
 # help
 python main.py -h
