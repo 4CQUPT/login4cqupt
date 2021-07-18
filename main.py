@@ -7,15 +7,6 @@ import os
 import sys
 import subprocess
 
-def get_ip():
-    try: 
-        s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-        s.connect(('8.8.8.8', 80))
-        ip = s.getsockname()[0]
-    finally:
-        s.close()
-    return ip
-
 def login(ip, args):
     args.ip = ip
     args.device = 0 if args.device == 'pc' else 1
@@ -30,10 +21,19 @@ def login(ip, args):
         print("密码错误")
         return
     elif 'aW51c2UsIGxvZ2luIGFnYWluL' in res.text:
-        login(get_ip(), get_args())
+        login(ip, args)
     else:
         print("您可能欠费停机")
         return 
+
+def get_ip():
+    try: 
+        s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+        s.connect(('8.8.8.8', 80))
+        ip = s.getsockname()[0]
+    finally:
+        s.close()
+    return ip
 
 def get_args():
     parser = argparse.ArgumentParser(
@@ -53,4 +53,6 @@ def get_args():
     return parser.parse_args()
 
 if __name__ == '__main__':
-    login(get_ip(), get_args())
+    ip = get_ip()
+    args = get_args()
+    login(ip, args)
